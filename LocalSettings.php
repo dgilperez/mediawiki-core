@@ -136,39 +136,39 @@ $wgGroupPermissions['*']['edit'] = false;
 # **********************
 #
 # AWS S3 Storage
-require_once("$IP/extensions/AWS/AWS.php");
+// require_once("$IP/extensions/AWS/AWS.php");
 
-// Configure AWS credentials
-$wgAWSCredentials = array(
-    'key' => getenv('AWS_ACCESS_KEY'),
-    'secret' => getenv('AWS_SECRET_ACCESS_KEY')
-);
+// // Configure AWS credentials
+// $wgAWSCredentials = array(
+//     'key' => getenv('AWS_ACCESS_KEY'),
+//     'secret' => getenv('AWS_SECRET_ACCESS_KEY')
+// );
 
-$wgAWSRegion = 'external-1';
+// $wgAWSRegion = 'external-1';
 
-$wgFileBackends['s3']['containerPaths'] = array(
-    'wiki_id-local-public' => 'grole-wiki-public',
-    'wiki_id-local-thumb' => 'grole-wiki-thumb',
-    'wiki_id-local-deleted' => 'grole-wiki-deleted',
-    'wiki_id-local-temp' => 'grole-wiki-temp'
-);
+// $wgFileBackends['s3']['containerPaths'] = array(
+//     'wiki_id-local-public' => 'grole-wiki-public',
+//     'wiki_id-local-thumb' => 'grole-wiki-thumb',
+//     'wiki_id-local-deleted' => 'grole-wiki-deleted',
+//     'wiki_id-local-temp' => 'grole-wiki-temp'
+// );
 
-// Make MediaWiki use Amazon S3 for file storage.
-$wgLocalFileRepo = array (
-    'class'             => 'LocalRepo',
-    'name'              => 'local',
-    'backend'           => 's3',
-    'scriptDirUrl'      => $wgScriptPath,
-    'scriptExtension'   => $wgScriptExtension,
-    'url'               => $wgScriptPath . '/img_auth.php',
-    'zones'             => array(
-        'public'  => array( 'url' => 'http://grole-wiki-public.s3.amazonaws.com/' ),
-        'thumb'   => array( 'url' => 'http://grole-wiki-thumb.s3.amazonaws.com/' ),
-        'temp'    => array( 'url' => 'http://grole-wiki-temp.s3.amazonaws.com/' ),
-        'deleted' => array( 'url' => 'http://grole-wiki-deleted.s3.amazonaws.com/' )
-    )
-);
+// // Make MediaWiki use Amazon S3 for file storage.
+// $wgLocalFileRepo = array (
+//     'class'             => 'LocalRepo',
+//     'name'              => 'local',
+//     'backend'           => 's3',
+//     'scriptDirUrl'      => $wgScriptPath,
+//     'scriptExtension'   => $wgScriptExtension,
+//     'url'               => $wgScriptPath . '/img_auth.php',
+//     'zones'             => array(
+//         'public'  => array( 'url' => 'http://grole-wiki-public.s3.amazonaws.com/' ),
+//         'thumb'   => array( 'url' => 'http://grole-wiki-thumb.s3.amazonaws.com/' ),
+//         'temp'    => array( 'url' => 'http://grole-wiki-temp.s3.amazonaws.com/' ),
+//         'deleted' => array( 'url' => 'http://grole-wiki-deleted.s3.amazonaws.com/' )
+//     )
+// );
 
-// Make MediaWiki use Amazon SQS for the JobQueue.
-// If you only want to use SQS for one job type, switch 'default' with the job type.
-// $wgJobTypeConf['default'] = array( 'class' => 'JobQueueAmazonSqs' );
+// // Make MediaWiki use Amazon SQS for the JobQueue.
+// // If you only want to use SQS for one job type, switch 'default' with the job type.
+// // $wgJobTypeConf['default'] = array( 'class' => 'JobQueueAmazonSqs' );
