@@ -37,7 +37,7 @@ $wgStylePath = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/common/images/gRole_dice_logo.png";
+$wgLogo             = "$wgStylePath/common/gRole_dice_logo.png";
 
 ## UPO means: this is also a user preference option
 
