@@ -59,6 +59,6 @@ Thumbs.db
 .idea
 .metadata*
 .settings
-/favicon.ico
+#/favicon.ico
 /static*
 /tags
