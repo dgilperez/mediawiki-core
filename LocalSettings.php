@@ -48,8 +48,8 @@ $wgEmergencyContact = "info@groleplay.com";
 $wgPasswordSender = "info@groleplay.com";
 
 $wgEnotifUserTalk = false; # UPO
-$wgEnotifWatchlist = true; # UPO
-$wgEmailAuthentication = true;
+$wgEnotifWatchlist = false; # UPO
+$wgEmailAuthentication = false;
 
 ## Database settings
 $_wgDBConnectionString = getenv('DATABASE_URL');
@@ -77,7 +77,7 @@ $wgMemCachedServers = array();
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads = true;
-$wgUseImageMagick = true;
+$wgUseImageMagick = false;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
